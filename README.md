@@ -1,69 +1,65 @@
-ChatGPT dijo:
-check-malicious-ips README
+# Check Malicious IPs
 
-Rápido y al grano: este repo chequea una lista de IPs contra AbuseIPDB y VirusTotal y genera ips_a_reportar.txt con las IPs que parecen maliciosas. No hace magia, sólo te ahorra copiar/pegar resultados.
+Este repositorio permite validar una lista de IPs contra **AbuseIPDB** y **VirusTotal**, generando un reporte final con las IPs maliciosas.
 
-Requisitos
+---
+
+## Requisitos
+
+- Python 3.x
+- Biblioteca `requests`
+
+```bash
 pip install requests
+Configuración
+Crear un archivo lista.txt con las IPs a revisar (una IP por línea, IPv4 o IPv6).
 
-Instalación (rápido)
+Exportar tus API keys en la terminal:
 
-Clona el repo.
-
-Instala la dependencia arriba.
-
-Variables de entorno (obligatorias)
-
+bash
+Copiar código
+export ABUSEIPDB_KEY="tu_abuseipdb_api_key"
+export VIRUSTOTAL_KEY="tu_virustotal_api_key"
 Uso
+Ejecutar los scripts:
 
-Crea lista.txt con las IPs (una por línea). IPv4 o IPv6 — tranquilo, ambos sirven.
-
-Ejecuta los scripts:
-
+bash
+Copiar código
 python check_abuseipdb.py && python check_virustotal.py
+El resultado final se guarda en ips_a_reportar.txt.
 
+Cómo funciona
+Valida cada IP de la lista (IPv4 o IPv6).
 
-El resultado final queda en ips_a_reportar.txt.
+AbuseIPDB: marca IPs con abuseConfidenceScore >= 90.
 
-Qué hace (sin vueltas)
-
-Valida cada IP (IPv4 o IPv6).
-
-AbuseIPDB: marca la IP si abuseConfidenceScore >= 90.
-
-VirusTotal: marca la IP si se cumple cualquiera de:
+VirusTotal: marca IPs si se cumple alguna de las siguientes condiciones:
 
 abuseConfidenceScore >= 90
 
-≥ 2 motores detectan “malicious”
+2 o más motores reportan "malicious"
 
 reputación negativa
 
-votos de la comunidad indican malicioso
+votos de la comunidad indican maliciosa
 
-Combina todas las IPs detectadas y las escribe en ips_a_reportar.txt.
+Combina todas las IPs maliciosas en ips_a_reportar.txt.
 
-Formato de archivos
+Archivos
+Archivo	Descripción
+lista.txt	IPs de entrada (una por línea)
+check_abuseipdb.py	Consulta AbuseIPDB
+check_virustotal.py	Consulta VirusTotal
+ips_a_reportar.txt	IPs maliciosas reportadas
 
-lista.txt — entrada: lista de IPs, una por línea.
-Ejemplo:
-
-1.2.3.4
-2001:0db8::1
-
-
-check_abuseipdb.py — consulta AbuseIPDB.
-
-check_virustotal.py — consulta VirusTotal.
-
-ips_a_reportar.txt — salida: IPs marcadas como maliciosas (una por línea).
-
-Ejemplo de salida
-# ips_a_reportar.txt
+Ejemplo de ips_a_reportar.txt
+ruby
+Copiar código
 1.2.3.4  # abuseConfidenceScore: 95 (AbuseIPDB)
 5.6.7.8  # virus_total: 3 motores detectaron "malicious"
 2001:0db8::1  # reputación negativa
+Notas
+Si ips_a_reportar.txt queda vacío, puede que las IPs estén limpias o las API keys sean incorrectas.
 
-Si no ves nada en ips_a_reportar.txt, probablemente las IPs están limpias o las API keys son inválidas. Revisa las variables de entorno.
+Para procesar muchas IPs, considera usar batches o agregar rate-limiting, ya que ambas APIs tienen límites.
 
-Para procesar muchas IPs, hazlo en batches o añade rate-limiting — ambas APIs tienen límites.
