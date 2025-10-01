@@ -13,13 +13,14 @@ Este script automatiza la verificación de listas de IPs contra **AbuseIPDB** y 
 
 ## 📋 Prerrequisitos
 
-```bash
+```
 pip install requests
+
 ⚙️ Configuración
 1. Clonar el repositorio
-bash
 git clone https://github.com/tu-usuario/check-malicious-ips.git
 cd check-malicious-ips
+
 🛠️ Uso
 1. Preparar la lista de IPs
 Crea lista.txt con las IPs a verificar:
@@ -29,9 +30,11 @@ txt
 2001:0db8::1
 5.6.7.8
 2. Ejecutar la verificación
-bash
+
 python check_abuseipdb.py && python check_virustotal.py
+
 📊 Criterios de Detección
+
 🔴 AbuseIPDB
 abuseConfidenceScore ≥ 90
 
@@ -52,6 +55,7 @@ check-malicious-ips/
 ├── check_virustotal.py    # Consulta VirusTotal
 ├── ips_a_reportar.txt     # Salida: IPs maliciosas detectadas
 └── README.md
+
 📝 Ejemplo de Salida
 ips_a_reportar.txt:
 
@@ -59,7 +63,9 @@ txt
 1.2.3.4          # abuseConfidenceScore: 95 (AbuseIPDB)
 5.6.7.8          # 3 motores detectaron "malicious" (VirusTotal)
 2001:0db8::1     # reputación negativa (VirusTotal)
+
 💡 Notas Importantes
+
 ⚠️ Si ips_a_reportar.txt está vacío:
 
 Las IPs pueden estar limpias
@@ -77,6 +83,7 @@ Respeta los límites de rate-limiting de las APIs
 Considera añadir delays entre consultas
 
 🎯 Características
+
 ✅ Soporte completo para IPv4 e IPv6
 ✅ Validación automática de formato de IP
 ✅ Resultados combinados y consolidados
