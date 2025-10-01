@@ -10,27 +10,15 @@ Verifica la reputación de IPs usando **AbuseIPDB** y **VirusTotal** y genera un
 - Librería `requests`
 ```bash
 pip install requests
-API keys:
-
-ABUSEIPDB_KEY
-
-VIRUSTOTAL_KEY
 
 Uso
 Crear lista.txt con las IPs (una por línea).
 
 Exportar tus API keys en la terminal:
 
-bash
-Copiar código
-export ABUSEIPDB_KEY="tu_key_abuseipdb"
-export VIRUSTOTAL_KEY="tu_key_virustotal"
 Ejecutar los scripts:
 
-bash
-Copiar código
-python check_abuseipdb.py
-python check_virustotal.py
+python check_abuseipdb.py; python check_virustotal.py
 El resultado final se guarda en ips_a_reportar.txt.
 
 Cómo funciona
@@ -59,12 +47,3 @@ check_virustotal.py → consulta VirusTotal
 
 ips_a_reportar.txt → IPs maliciosas reportadas
 
-Notas
-No subir tus API keys al repositorio.
-
-Respeta los límites de las APIs para evitar bloqueos.
-
-markdown
-Copiar código
-
-Si quieres, puedo hacer **una versión aún más visual y “GitHub friendly”** usando **badges** y resalt
