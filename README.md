@@ -1,12 +1,19 @@
-🔍 check-malicious-ips
-Una herramienta rápida y eficiente para identificar direcciones IP maliciosas
-Combina la potencia de AbuseIPDB y VirusTotal en un solo flujo de trabajo
+# 🔍 check-malicious-ips
 
-🚀 Descripción Rápida
-Este script automatiza la verificación de listas de IPs contra AbuseIPDB y VirusTotal, generando un archivo ips_a_reportar.txt con las IPs que muestran indicios de actividad maliciosa. ¡Sin complicaciones, solo resultados!
+**Una herramienta rápida y eficiente para identificar direcciones IP maliciosas**  
+*Combina la potencia de AbuseIPDB y VirusTotal en un solo flujo de trabajo*
 
-📋 Prerrequisitos
-bash
+---
+
+## 🚀 Descripción Rápida
+
+Este script automatiza la verificación de listas de IPs contra **AbuseIPDB** y **VirusTotal**, generando un archivo `ips_a_reportar.txt` con las IPs que muestran indicios de actividad maliciosa. ¡Sin complicaciones, solo resultados!
+
+---
+
+## 📋 Prerrequisitos
+
+```bash
 pip install requests
 ⚙️ Configuración
 1. Clonar el repositorio
@@ -46,11 +53,11 @@ Votos de comunidad indican malicioso
 📁 Estructura de Archivos
 text
 check-malicious-ips/
-├── 📄 lista.txt              # Entrada: IPs a verificar
-├── ⚡ check_abuseipdb.py      # Consulta AbuseIPDB
-├── 🔍 check_virustotal.py    # Consulta VirusTotal
-├── 📄 ips_a_reportar.txt     # Salida: IPs maliciosas detectadas
-└── 📄 README.md
+├── lista.txt              # Entrada: IPs a verificar
+├── check_abuseipdb.py     # Consulta AbuseIPDB
+├── check_virustotal.py    # Consulta VirusTotal
+├── ips_a_reportar.txt     # Salida: IPs maliciosas detectadas
+└── README.md
 📝 Ejemplo de Salida
 ips_a_reportar.txt:
 
@@ -80,3 +87,4 @@ Considera añadir delays entre consultas
 ✅ Validación automática de formato de IP
 ✅ Resultados combinados y consolidados
 ✅ Fácil integración en flujos de trabajo existentes
+
