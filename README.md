@@ -14,7 +14,11 @@ bash
 git clone https://github.com/tu-usuario/check-malicious-ips.git
 cd check-malicious-ips
 2. Variables de Entorno (Obligatorias)
+Crea un archivo .env con:
 
+env
+ABUSEIPDB_API_KEY=tu_api_key_de_abuseipdb
+VIRUSTOTAL_API_KEY=tu_api_key_de_virustotal
 🛠️ Uso
 1. Preparar la lista de IPs
 Crea lista.txt con las IPs a verificar:
@@ -76,4 +80,3 @@ Considera añadir delays entre consultas
 ✅ Validación automática de formato de IP
 ✅ Resultados combinados y consolidados
 ✅ Fácil integración en flujos de trabajo existentes
-
