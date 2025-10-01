@@ -14,13 +14,6 @@ pip install requests
 Configuración
 Crear un archivo lista.txt con las IPs a revisar (una IP por línea, IPv4 o IPv6).
 
-Exportar tus API keys en la terminal:
-
-bash
-Copiar código
-export ABUSEIPDB_KEY="tu_abuseipdb_api_key"
-export VIRUSTOTAL_KEY="tu_virustotal_api_key"
-Uso
 Ejecutar los scripts:
 
 bash
